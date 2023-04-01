@@ -47,8 +47,10 @@ jobs:
       - name: build
         run: npm run build
 
-      - name: start server in cypress mode
-        run:  npm run start-cypress-mode
+      # - name: start server in cypress mode
+      #   run:  npm run start-cypress-mode
 
       - name: e2e tests
-        run: npm run test-e2e
+        run: |
+          npm run start-cypress-mode && 
+          npm run test-e2e
