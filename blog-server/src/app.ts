@@ -36,7 +36,7 @@ app.use(middleware.unknownEndpoint);
 
 
 connectDB()
-    .then(() => logger.info('connected to MongoDB'))
+    .then((res:any) => logger.info('connected to MongoDB' + JSON.stringify(res)))
     .catch((error) =>
         logger.error('error connecting to MongoDB', error.message)
     );
