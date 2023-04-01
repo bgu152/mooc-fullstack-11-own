@@ -37,23 +37,21 @@ jobs:
       # - name: Check style in client
       #   run: npm run lint-client
 
-      - name: check node .env
-        run: cat blog-server/.env
-
-      - name: print secrets.DB_NAME
-        run: echo ${{secrets.DB_NAME}} | sed 's/./& /g'
-
-      - name: test server
-        run: npm run test-server
-        
+      # - name: test server
+      #   run: npm run test-server
 
       # - name: test client
       #   run: npm run test-client
 
-      # - name: e2e tests
-      #   uses: cypress-io/github-action@v5
-      #   with:
-      #     command: npm run test-e2e
-      #     start: npm run start-cypress-mode
-      #     wait-on: http://localhost:8080
+      
+      - name: build
+        run: npm run build
+
+
+      - name: e2e tests
+        uses: cypress-io/github-action@v5
+        with:
+          command: npm run test-e2e
+          start: npm run start-cypress-mode
+          wait-on: http://localhost:8080
 

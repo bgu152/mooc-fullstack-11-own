@@ -206,8 +206,7 @@ beforeEach(async () => {
 });
 
 afterAll(async () => {
-    console.log('blog api test mongoose connection models: ', mongoose.connection.models);
     await mongoose.connection.close();
 });
 
-export default () => process.exit(0);
+// export default () => process.exit(0);
