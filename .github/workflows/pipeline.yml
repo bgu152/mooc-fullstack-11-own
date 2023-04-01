@@ -50,3 +50,6 @@ jobs:
 
       - name: e2e tests
         run: npm run test-e2e
+        with:
+          start: npm run start-cypress-mode
+          wait-on: http://localhost:8080
