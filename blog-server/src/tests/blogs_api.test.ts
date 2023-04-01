@@ -206,6 +206,7 @@ beforeEach(async () => {
 });
 
 afterAll(async () => {
+    console.log('blog api test mongoose connection models: ', mongoose.connection.models);
     await mongoose.connection.close();
 });
 
