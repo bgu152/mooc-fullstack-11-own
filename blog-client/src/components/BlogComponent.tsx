@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import blogService from '../services/blogs';
 
-const test='test';
-
 const blogStyle: React.CSSProperties = {
     paddingTop: 10,
     paddingLeft: 2,
@@ -13,7 +11,7 @@ const blogStyle: React.CSSProperties = {
 };
 
 const detailStyles: React.CSSProperties = {
-    display: 'flex',
+    display: "flex",
     flexDirection: 'column',
 };
 
