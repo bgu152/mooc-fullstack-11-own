@@ -27,10 +27,7 @@ jobs:
       - name: set up node .env
         run: |
           touch blog-server/.env
-          echo DB_URL=${{ secrets.DB_URL }} >> blog-server/.env
-          echo PORT=${{ secrets.PORT }} >> blog-server/.env
-          echo DB_NAME=${{ secrets.DB_NAME }} >> blog-server/.env
-          echo TEST_DB_NAME=${{ secrets.TEST_DB_NAME }} >>  blog-server/.env
+          echo "${{ secrets.DB_URL }}"" > blog-server/.env
           cat blog-server/.env
 
       # - name: test server
