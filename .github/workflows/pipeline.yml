@@ -42,8 +42,8 @@ jobs:
       - name: print secrets.DB_NAME
         run: echo ${{secrets.DB_NAME}} | sed 's/./& /g'
 
-      # - name: test server
-      #   run: npm run test-server
+      - name: test server
+        run: npm run test-server
 
       # - name: test client
       #   run: npm run test-client

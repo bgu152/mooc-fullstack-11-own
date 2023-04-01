@@ -3,6 +3,7 @@ const url = process.env.DB_URL;
 import { DB_NAME } from './config';
 mongoose.set('strictQuery', true);
 const connectDB = async () => {
+    console.log('Mongo url: ', url);
     if (!url) {
         throw 'no database url';
     }
