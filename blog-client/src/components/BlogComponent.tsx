@@ -11,7 +11,7 @@ const blogStyle: React.CSSProperties = {
 };
 
 const detailStyles: React.CSSProperties = {
-    display: "flex",
+    display: 'flex',
     flexDirection: 'column',
 };
 
