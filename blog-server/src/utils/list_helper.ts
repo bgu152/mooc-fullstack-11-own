@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const dummy = (blogs: Blog[]) => {
     return 1;
 };

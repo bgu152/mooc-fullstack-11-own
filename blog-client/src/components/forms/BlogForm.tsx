@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import blogService from '../../services/blogs';
 
 interface BlogFormProps {
     fetchAndSetBlogs: () => Promise<void>;
     setMessage: React.Dispatch<React.SetStateAction<Message | null>>;
     toggleBlogForm: () => void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     postBlog: (blog: NewBlog) => Promise<any>;
 }
 

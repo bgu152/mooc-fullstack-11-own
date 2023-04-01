@@ -11,7 +11,13 @@
     "install-server": "npm --prefix blog-server install",
     "install-client": "npm --prefix blog-client install",
     "install": "npm run install-server && npm run install-client",
-    "build": "npm run build-server && npm run build-client"
+    "build": "npm run build-server && npm run build-client",
+    "test-client": "npm --prefix blog-client run test",
+    "test-server": "npm --prefix blog-server run test",
+    "start-cypress-mode": "npm --prefix blog-server run cypress-mode",
+    "test-e2e": "npm --prefix e2e-tests run cypress",
+    "lint-client": "npm --prefix blog-client run eslint",
+    "lint-server": "npm --prefix blog-server run eslint"
   },
   "repository": {
     "type": "git",

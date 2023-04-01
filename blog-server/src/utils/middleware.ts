@@ -21,6 +21,7 @@ const unknownEndpoint = (request: Request, response: Response) => {
 };
 
 const errorHandler = (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     error: any,
     request: Request,
     response: Response,
@@ -64,6 +65,7 @@ const tokenExtractor = async (
     try {
         const token = getTokenFrom(request);
         if (token) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const decodedToken: any = jwt.verify(token, SECRET as string);
             if (!decodedToken?.id) {
                 return response.status(401).json({ error: 'token invalid' });
@@ -87,6 +89,7 @@ const userExtractor = async (
     try {
         const token = getTokenFrom(request);
         if (token) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const decodedToken: any = jwt.verify(token, SECRET as string);
             if (!decodedToken?.id) {
                 return response.status(401).json({ error: 'token invalid' });

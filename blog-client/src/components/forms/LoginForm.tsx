@@ -38,6 +38,7 @@ const LoginForm = ({ setUser, setToken, setMessage }: LoginProps) => {
             } else if (response?.status === 401) {
                 console.log(401);
             }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
             console.log(error);
             setMessage({

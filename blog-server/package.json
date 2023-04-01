@@ -8,7 +8,8 @@
         "start": "NODE_ENV=production node ./dist/index.js",
         "build": "tsc -p .",
         "dev": "NODE_ENV=development nodemon --exec ts-node src/index.ts",
-        "cypress-mode": "NODE_ENV=test nodemon --exec ts-node src/index.ts"
+        "cypress-mode": "NODE_ENV=test nodemon --exec ts-node src/index.ts",
+        "eslint": "eslint './**/*.{ts,tsx}'"
     },
     "author": "",
     "license": "ISC",
