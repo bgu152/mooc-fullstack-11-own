@@ -10,7 +10,7 @@
     "install-e2e-tests": "npm --prefix e2e-tests install",
     "install-server": "npm --prefix blog-server install",
     "install-client": "npm --prefix blog-client install",
-    "install": "npm run install-server && npm run install-client",
+    "install": "npm run install-server && npm run install-client && npm run install-e2e-tests",
     "build": "npm run build-server && npm run build-client",
     "test-client": "npm --prefix blog-client run test",
     "test-server": "npm --prefix blog-server run test",
