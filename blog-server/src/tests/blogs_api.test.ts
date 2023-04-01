@@ -29,7 +29,7 @@ beforeAll(async () => {
     console.log('response.body.token: ', response.body.token);
 
     token = response.body.token;
-});
+}, 10000);
 
 const initialBlogs: Blog[] = [
     {
