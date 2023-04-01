@@ -9,4 +9,6 @@ const DB_NAME =
         : process.env.DB_NAME;
 const SECRET = process.env.SECRET;
 
+console.log('DB_NAME: ', DB_NAME);
+
 export { DB_URL, PORT, DB_NAME, SECRET };
