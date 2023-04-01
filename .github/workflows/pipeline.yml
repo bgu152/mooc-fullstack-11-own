@@ -20,3 +20,6 @@ jobs:
 
       - name: Check style in server
         run: npm run lint-server
+
+      - name: Check style in client
+        run: npm run lint-client
