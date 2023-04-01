@@ -23,3 +23,17 @@ jobs:
 
       - name: Check style in client
         run: npm run lint-client
+
+      - name: test server
+        run: npm run test-server
+
+      - name: test client
+        run: npm run test-client
+
+      - name: e2e tests
+        uses: cypress-io/github-action@v5
+        with:
+          command: npm run test-e2e
+          start: npm run start-cypress-mode
+          wait-on: http://localhost:8080
+
