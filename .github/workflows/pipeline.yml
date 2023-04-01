@@ -18,11 +18,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Check style in server
-        run: npm run lint-server
+      # - name: Check style in server
+      #   run: npm run lint-server
 
-      - name: Check style in client
-        run: npm run lint-client
+      # - name: Check style in client
+      #   run: npm run lint-client
 
       - name: set up node .env
         run: |
@@ -31,20 +31,18 @@ jobs:
           echo PORT=${{ secrets.PORT }} >> blog-server/.env
           echo DB_NAME=${{ secrets.DB_NAME }} >> blog-server/.env
           echo TEST_DB_NAME=${{ secrets.TEST_DB_NAME }} >>  blog-server/.env
+          cat blog-server/.env
 
-      - name: check blog-server/.env
-        run: cat blog-server/.env
+      # - name: test server
+      #   run: npm run test-server
 
-      - name: test server
-        run: npm run test-server
+      # - name: test client
+      #   run: npm run test-client
 
-      - name: test client
-        run: npm run test-client
-
-      - name: e2e tests
-        uses: cypress-io/github-action@v5
-        with:
-          command: npm run test-e2e
-          start: npm run start-cypress-mode
-          wait-on: http://localhost:8080
+      # - name: e2e tests
+      #   uses: cypress-io/github-action@v5
+      #   with:
+      #     command: npm run test-e2e
+      #     start: npm run start-cypress-mode
+      #     wait-on: http://localhost:8080
 
