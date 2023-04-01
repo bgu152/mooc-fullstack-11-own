@@ -26,7 +26,6 @@ jobs:
 
       - name: set up node .env
         run: |
-          touch blog-server/.env
           echo "${{ secrets.DB_URL }}" > blog-server/.env
           cat blog-server/.env
 
