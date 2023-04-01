@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import blogService from '../services/blogs';
 
+const test='test';
+
 const blogStyle: React.CSSProperties = {
     paddingTop: 10,
     paddingLeft: 2,
