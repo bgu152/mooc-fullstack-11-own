@@ -23,6 +23,7 @@ jobs:
           envkey_DB_NAME: ${{ secrets.DB_NAME }}
           envkey_TEST_DB_NAME:  ${{ secrets.TEST_DB_NAME }}
           envkey_SECRET:  ${{ secrets.SECRET }}
+          envkey_NODE_ENV: test
           directory: blog-server
           file_name: .env
           fail_on_empty: true
