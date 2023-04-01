@@ -28,8 +28,9 @@ jobs:
           file_name: .env
           fail_on_empty: true
 
-      # - name: Install dependencies
-      #   run: npm install
+      - name: Install dependencies
+        run: npm install
+        
       # - name: Check style in server
       #   run: npm run lint-server
 
