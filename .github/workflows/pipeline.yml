@@ -46,6 +46,9 @@ jobs:
       
       - name: build
         run: npm run build
+      
+      - name: install e2e test suite
+        run: npm install-e2e-tests
 
 
       - name: e2e tests
