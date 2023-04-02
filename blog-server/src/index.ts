@@ -1,7 +1,7 @@
 import { PORT } from './utils/config';
-import connectDB from './utils/mongoConnection';
+// import connectDB from './utils/mongoConnection';
 import app from './app';
 
-connectDB();
+// connectDB();
 
 app.listen(PORT, () => console.log(`Sever running on port ${PORT}`));

@@ -29,7 +29,7 @@ test('renders author and title, not url, likes or user', () => {
     );
 
     const authorSpan = container.querySelector('.author');
-    expect(authorSpan).toHaveTextContent('Dijsktra');
+    expect(authorSpan).toHaveTextContent('Dijsktras');
     expect(authorSpan).toBeVisible();
 
     const titleSpan = container.querySelector('.title');
