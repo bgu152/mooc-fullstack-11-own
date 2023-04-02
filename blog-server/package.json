@@ -46,7 +46,6 @@
         "ts-node": "^10.9.1"
     },
     "jest": {
-        "testEnvironment": "node",
-        "globalTeardown": "./src/tests/teardown.js"
+        "testEnvironment": "node"
     }
 }
