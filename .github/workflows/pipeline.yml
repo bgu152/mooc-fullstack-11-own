@@ -43,12 +43,12 @@ jobs:
       # - name: test client
       #   run: npm run test-client
       
-      # - name: build
-      #   run: npm run build
+      - name: build
+        run: npm run build
 
-      # - name: e2e tests
-      #   uses: cypress-io/github-action@v5
-      #   with:
-      #     command: npm run cypress
-      #     start: npm run start-cypress-mode 
-      #     wait-on: http://localhost:8080
+      - name: e2e tests
+        uses: cypress-io/github-action@v5
+        with:
+          command: npm run cypress
+          start: npm run start-cypress-mode 
+          wait-on: http://localhost:8080
