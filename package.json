@@ -17,7 +17,8 @@
     "start-cypress-mode": "npm --prefix blog-server run cypress-mode",
     "test-e2e": "npm --prefix e2e-tests run cypress",
     "lint-client": "npm --prefix blog-client run eslint",
-    "lint-server": "npm --prefix blog-server run eslint"
+    "lint-server": "npm --prefix blog-server run eslint",
+    "cypress": "cypress run --spec \"cypress/e2e/blog_app.cy.js\""
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/bgu152/mooc-fullstack-11-own/issues"
   },
-  "homepage": "https://github.com/bgu152/mooc-fullstack-11-own#readme"
+  "homepage": "https://github.com/bgu152/mooc-fullstack-11-own#readme",
+  "dependencies": {
+    "cypress": "^12.9.0"
+  }
 }
