@@ -31,17 +31,17 @@ jobs:
       - name: Install dependencies
         run: npm run install-all
 
-      # - name: Check style in server
-      #   run: npm run lint-server
+      - name: Check style in server
+        run: npm run lint-server
 
-      # - name: Check style in client
-      #   run: npm run lint-client
+      - name: Check style in client
+        run: npm run lint-client
 
       - name: test server
         run: npm run test-server
 
-      # - name: test client
-      #   run: npm run test-client
+      - name: test client
+        run: npm run test-client
       
       - name: build
         run: npm run build
