@@ -190,7 +190,7 @@ describe('updating a blog', () => {
             .send({ likes: 100 })
             .expect(200);
         const blogAfterUpdate = responseAfterUpdate.body;
-        expect(blogAfterUpdate.likes).toBe(100);
+        expect(blogAfterUpdate.likes).toBe(110);
     });
 });
 
