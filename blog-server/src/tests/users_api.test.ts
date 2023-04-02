@@ -3,6 +3,7 @@ import app from '../app';
 import User from '../models/user';
 import bcrypt from 'bcrypt';
 import Blog from '../models/blog';
+import mongoose from 'mongoose';
 
 const api = supertest(app);
 
@@ -146,4 +147,9 @@ describe('Retrieving users', () => {
 
         expect(users).toHaveLength(2);
     });
+});
+
+
+afterAll(async () => {
+    await mongoose.connection.close();
 });
