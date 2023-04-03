@@ -61,7 +61,7 @@ jobs:
     runs-on: ubuntu-20.04
     needs: [tests]
     if: |
-      !contains(COMMIT_MESSAGES, '#skip')
+      !contains($COMMIT_MESSAGES, '#skip')
         && github.event_name == 'push'
     steps:
       - uses: superfly/flyctl-actions/setup-flyctl@master
