@@ -7,4 +7,5 @@ module.exports = defineConfig({
     },
     defaultCommandTimeout:30000,
   },
+  video: false,
 });
