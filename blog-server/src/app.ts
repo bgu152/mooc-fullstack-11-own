@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === 'test') {
 }
 
 app.use('/api/health', (_req, res) => {
-    res.json({status: 'ok'});
+    res.send('ok');
 });
 
 app.use(userExtractor);
