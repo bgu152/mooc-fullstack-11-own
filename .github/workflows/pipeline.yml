@@ -34,24 +34,24 @@ jobs:
       - name: Check style in server
         run: npm run lint-server
 
-      # - name: Check style in client
-      #   run: npm run lint-client
+      - name: Check style in client
+        run: npm run lint-client
 
-      # - name: test server
-      #   run: npm run test-server
+      - name: test server
+        run: npm run test-server
 
-      # - name: test client
-      #   run: npm run test-client
+      - name: test client
+        run: npm run test-client
 
-      # - name: build
-      #   run: npm run build
+      - name: build
+        run: npm run build
 
-      # - name: e2e tests
-      #   uses: cypress-io/github-action@v5
-      #   with:
-      #     command: npm run cypress
-      #     start: npm run start-cypress-mode
-      #     wait-on: http://localhost:8080
+      - name: e2e tests
+        uses: cypress-io/github-action@v5
+        with:
+          command: npm run cypress
+          start: npm run start-cypress-mode
+          wait-on: http://localhost:8080
 
   deployment:
     runs-on: ubuntu-20.04
@@ -69,8 +69,8 @@ jobs:
         env:
           COMMIT_MESSAGES: ${{ join(github.event.commits.*.message, ', ') }}
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-        # run: flyctl deploy --remote-only
-        run: echo "$COMMIT_MESSAGES"
+        run: flyctl deploy --remote-only
+        # run: echo "$COMMIT_MESSAGES"
 
       - name: Deployment Success Discord Notification
         if: ${{success()}}
