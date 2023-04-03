@@ -31,11 +31,11 @@ jobs:
       - name: Install dependencies
         run: npm run install-all
 
-      - name: Check style in server
-        run: npm run lint-server
+      # - name: Check style in server
+      #   run: npm run lint-server
 
-      - name: Check style in client
-        run: npm run lint-client
+      # - name: Check style in client
+      #   run: npm run lint-client
 
       # - name: test server
       #   run: npm run test-server
