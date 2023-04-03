@@ -91,7 +91,7 @@ jobs:
         #   webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
   tag_release:
-    needs: [deploy]
+    needs: [deployment]
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
