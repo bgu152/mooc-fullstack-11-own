@@ -60,7 +60,7 @@ jobs:
   deployment:
     runs-on: ubuntu-20.04
     needs: [tests]
-    if: ${!contains(env.COMMIT_MESSAGES, '#skip')}
+    if: ${{ github.event_name == 'push' }}
     steps:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - uses: actions/checkout@v3
