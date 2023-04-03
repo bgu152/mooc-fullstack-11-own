@@ -74,6 +74,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
+          
       - name: deploy to fly.io
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
