@@ -84,6 +84,9 @@ jobs:
         uses: rjstone/discord-webhook-notify@v1
         with:
           severity: info
+          username: Blog app Bot
+          avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
+          description:  Tests passed, deployment succeeded!
           details: A new build of blog app deployed to https://black-grass-1701.fly.dev by ${{ github.event.commits[0].author.name }}!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
