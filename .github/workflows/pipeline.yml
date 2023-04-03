@@ -62,7 +62,7 @@ jobs:
     needs: [tests]
     if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message, ', '), '#skip') }}
     steps:
-      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - uses: superfly/flyctl-actions/setup-flyctl@master 
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
