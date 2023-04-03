@@ -56,12 +56,9 @@ jobs:
   deployment:
     runs-on: ubuntu-20.04
     needs: [tests]
-    if: |
-      !contains(env.COMMIT_MESSAGES, '#skip')
-        && github.event_name == 'push'
-    env:
-        COMMIT_MESSAGES: ${{ join(github.event.commits.*.message, ', ') }}
-        FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+    # if: |
+    #   !contains(env.COMMIT_MESSAGES, '#skip')
+    #     && github.event_name == 'push'
     steps:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - uses: actions/checkout@v3
@@ -69,6 +66,9 @@ jobs:
         with:
           node-version: "16"
       - name: deploy to fly.io
+        env:
+            # COMMIT_MESSAGES: ${{ join(github.event.commits.*.message, ', ') }}
+            FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         run: flyctl deploy --remote-only
 
       - name: Deployment Success Discord Notification
