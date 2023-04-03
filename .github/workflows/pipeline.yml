@@ -7,6 +7,10 @@ on:
   pull_request:
     branches: [main]
     types: [opened, synchronize]
+env:
+  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+  COMMIT_MESSAGES: ${{ join(github.event.commits.*.message, ', ') }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   tests:
@@ -18,11 +22,11 @@ jobs:
       - name: Make envfile
         uses: SpicyPizza/create-envfile@v1.3
         with:
-          envkey_DB_URL:  ${{ secrets.DB_URL }}
-          envkey_PORT:  ${{ secrets.PORT }}
+          envkey_DB_URL: ${{ secrets.DB_URL }}
+          envkey_PORT: ${{ secrets.PORT }}
           envkey_DB_NAME: ${{ secrets.DB_NAME }}
-          envkey_TEST_DB_NAME:  ${{ secrets.TEST_DB_NAME }}
-          envkey_SECRET:  ${{ secrets.SECRET }}
+          envkey_TEST_DB_NAME: ${{ secrets.TEST_DB_NAME }}
+          envkey_SECRET: ${{ secrets.SECRET }}
           envkey_NODE_ENV: test
           directory: blog-server
           file_name: .env
@@ -42,7 +46,7 @@ jobs:
 
       # - name: test client
       #   run: npm run test-client
-      
+
       # - name: build
       #   run: npm run build
 
@@ -50,17 +54,17 @@ jobs:
       #   uses: cypress-io/github-action@v5
       #   with:
       #     command: npm run cypress
-      #     start: npm run start-cypress-mode 
+      #     start: npm run start-cypress-mode
       #     wait-on: http://localhost:8080
 
   deployment:
     runs-on: ubuntu-20.04
-    needs: [tests]   
+    needs: [tests]
     if: |
       !contains(env.COMMIT_MESSAGES, '#skip')
         && github.event_name == 'push'
     env:
-          COMMIT_MESSAGES: ${{ join(github.event.commits.*.message, ', ') }} 
+      COMMIT_MESSAGES: ${{ join(github.event.commits.*.message, ', ') }}
     steps:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - uses: actions/checkout@v3
@@ -69,8 +73,8 @@ jobs:
           node-version: "16"
       - name: deploy to fly.io
         env:
-            # COMMIT_MESSAGES: ${{ join(github.event.commits.*.message, ', ') }}
-            FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          # COMMIT_MESSAGES: ${{ join(github.event.commits.*.message, ', ') }}
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         # run: flyctl deploy --remote-only
         run: echo "Deploying now"
 
@@ -82,7 +86,6 @@ jobs:
         #   severity: info
         #   details: A new build deployed to fly.io by ${{ github.event.commits[0].author.name }}!
         #   webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-
 
       - name: Deployment Failure Discord Notification
         if: ${{failure()}}
