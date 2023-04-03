@@ -74,18 +74,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
-      - name: print commit COMMIT_MESSAGES
-        run: echo "$COMMIT_MESSAGES"
       - name: deploy to fly.io
         env:
-          COMMIT_MESSAGES: ${{ join(github.event.commits.*.message, ', ') }}
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
         run: flyctl deploy --remote-only
-        # run: echo "$COMMIT_MESSAGES"
 
       - name: Deployment Success Discord Notification
         if: ${{success()}}
-        # run: echo "deployment success"
         uses: rjstone/discord-webhook-notify@v1
         with:
           severity: info
@@ -94,7 +89,6 @@ jobs:
 
       - name: Deployment Failure Discord Notification
         if: ${{failure()}}
-        # run: echo "deployment failure"
         uses: rjstone/discord-webhook-notify@v1
         with:
           severity: error
