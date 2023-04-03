@@ -40,36 +40,12 @@ jobs:
       - name: test server
         run: npm run test-server
 
-      - name: Deployment Failure Discord Notification
-        if: ${{failure()}}
-        uses: rjstone/discord-webhook-notify@v1
-        with:
-          severity: error
-          details: Blog app server tests failed!
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-
 
       - name: test client
         run: npm run test-client
 
-      - name: Deployment Failure Discord Notification
-        if: ${{failure()}}
-        uses: rjstone/discord-webhook-notify@v1
-        with:
-          severity: error
-          details: Blog app client tests failed!
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-
       - name: build
         run: npm run build
-
-      - name: Deployment Failure Discord Notification
-        if: ${{failure()}}
-        uses: rjstone/discord-webhook-notify@v1
-        with:
-          severity: error
-          details: Blog app build failed!
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
       - name: e2e tests
         uses: cypress-io/github-action@v5
@@ -78,12 +54,14 @@ jobs:
           start: npm run start-cypress-mode
           wait-on: http://localhost:8080
 
-      - name: Deployment Failure Discord Notification
+      - name: Test Failure Discord Notification
         if: ${{failure()}}
         uses: rjstone/discord-webhook-notify@v1
         with:
-          severity: error
-          details: Blog app e2e tests failed!
+          username: Blog app Bot
+          avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
+          description:  Tests failed!
+          details: Commit https://github.com/bgu152/mooc-fullstack-11-own/commit/${{github.event.pull_request.base.sha}} by ${{ github.actor}} broke the build
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
   deployment:
@@ -120,7 +98,10 @@ jobs:
         uses: rjstone/discord-webhook-notify@v1
         with:
           severity: error
-          details: Blog app deployement to https://black-grass-1701.fly.dev by ${{ github.event.commits[0].author.name }} failed!
+          username: Blog app Bot
+          avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
+          description:  Tests passed, deployment failed!
+          details: Blog app deployement failed, commit https://github.com/bgu152/mooc-fullstack-11-own/commit/${{github.event.pull_request.base.sha}} by ${{ github.event.commits[0].author.name }} broke something!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
 
   tag_release:
