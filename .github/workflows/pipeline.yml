@@ -60,15 +60,14 @@ jobs:
   deployment:
     runs-on: ubuntu-20.04
     needs: [tests]
-    if: |
-      !contains($COMMIT_MESSAGES, '#skip')
-        && github.event_name == 'push'
     steps:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
+      - name: print commit COMMIT_MESSAGES
+        run: echo "$COMMIT_MESSAGES"
       - name: deploy to fly.io
         env:
           COMMIT_MESSAGES: ${{ join(github.event.commits.*.message, ', ') }}
