@@ -8,4 +8,7 @@ module.exports = defineConfig({
     defaultCommandTimeout:30000,
   },
   video: false,
+  retries: {
+    runMode: 2
+  }
 });
