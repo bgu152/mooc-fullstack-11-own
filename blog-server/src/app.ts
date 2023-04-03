@@ -28,6 +28,10 @@ if (process.env.NODE_ENV === 'test') {
     app.use('/api/testing', testingRouter);
 }
 
+app.use('/api/health', (_req, res) => {
+    res.json({status: 'ok'});
+});
+
 app.use(userExtractor);
 app.use('/api/blogs', blogRouter);
 app.use(middleware.requestLogger);
