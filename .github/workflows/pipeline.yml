@@ -114,5 +114,4 @@ jobs:
         env:
           DEFAULT_BUMP: patch
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # run: echo shouldDeployTagRelease
         uses: anothrNick/github-tag-action@1.61.0
