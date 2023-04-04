@@ -13,11 +13,11 @@ Start by running `npm run install-all` inside the root folder
 `npm run test-client` to run unit tests on client\
 `npm run test-server` to test the api\
 `npm run start-cypress-mode` run before e2e testing\
-`npm run cypress` to run e2e testing\
+`npm run cypress` to run e2e testing
 
 ## Environment variables
 
-Add the following variables in `/blog-server/.env`. Note that a Mongo database must be connected\
+Add the following variables in `/blog-server/.env`. Note that a Mongo database must be connected
 
 ```
 DB_URL
@@ -28,7 +28,7 @@ SECRET
 
 ```
 
-Add the above secrets into the projects Github action secrets. In addition to the above secrets, also add the following secrets to the Github action secrets\
+Add the above secrets into the projects Github action secrets. In addition to the above secrets, also add the following secrets to the Github action secrets
 
 ```
 DISCORD_WEBHOOK
